@@ -21,7 +21,10 @@ NEWSPIDER_MODULE = 'IMDB.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-#Export as CSV Feed
+#Export as JsonLine Feed
+FEED_FORMAT = 'jsonlines'
+FEED_URI = 'imdb.json'
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

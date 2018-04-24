@@ -5,7 +5,7 @@ class QuotesSpider(scrapy.Spider):
     name = "movie_reviews"
     allowed_domains = ['www.imdb.com']
     start_urls = [
-        'https://www.imdb.com/title/tt0451279/reviews?ref_=tt_urv'
+        'https://www.imdb.com/title/tt6791096/reviews?ref_=tt_urv'
     ]
 
     def parse(self, response):
@@ -20,7 +20,7 @@ class QuotesSpider(scrapy.Spider):
                 'content': '\n'.join(review.css('.content div.text::text').extract())
             }
         data_key = response.css('.load-more-data::attr(data-key)').extract_first()
-        ajax_url = '/title/tt0451279/reviews/_ajax?'
+        ajax_url = '/title/tt6791096/reviews/_ajax?'
         self.logger.info('Data Key: %s', data_key)
         parameters = {"ref_": "undefined","paginationKey":data_key}
         if data_key is not None and ajax_url is not None:

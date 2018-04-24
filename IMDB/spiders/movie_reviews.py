@@ -13,7 +13,7 @@ class QuotesSpider(scrapy.Spider):
         for review in response.css('div.review-container'):
             yield {
                 'rating': review.css('span.rating-other-user-rating span::text').extract_first(),
-                'date': review.css('.review-date::text').extract(),
+                'date': review.css('.review-date::text').extract_first(),
                 'user_name': review.css('.display-name-link a::text').extract_first(),
                 'user_id': review.css('.display-name-link a::attr(href)').extract_first().split('/')[2],
                 'title': review.css('.title::text').extract_first(),
